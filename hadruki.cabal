@@ -1,0 +1,71 @@
+-- This file has been generated from package.yaml by hpack version 0.20.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 776bd9956d125d1669d6991b904cf6ace71ddf3decb3d6bed01efc36d3975b06
+
+name:           hadruki
+version:        0.1.0.0
+description:    Please see the README on Github at <https://github.com/dvekeman/hadruki#readme>
+homepage:       https://github.com/dvekeman/hadruki#readme
+bug-reports:    https://github.com/dvekeman/hadruki/issues
+author:         Dieter Vekeman
+maintainer:     dieter.vekeman@gmail.com
+copyright:      (c) 2016 Dieter Vekeman
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+
+extra-source-files:
+    ChangeLog.md
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/dvekeman/hadruki
+
+library
+  hs-source-dirs:
+      src
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , happstack-server
+    , text
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_hadruki
+  default-language: Haskell2010
+
+executable hadruki-exe
+  main-is: Main.hs
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , hadruki
+    , happstack-server
+    , text
+  other-modules:
+      Paths_hadruki
+  default-language: Haskell2010
+
+test-suite hadruki-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , hadruki
+    , happstack-server
+    , text
+  other-modules:
+      Paths_hadruki
+  default-language: Haskell2010

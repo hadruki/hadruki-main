@@ -1,0 +1,51 @@
+name:                hadruki
+version:             0.1.0.0
+github:              "dvekeman/hadruki"
+license:             BSD3
+author:              "Dieter Vekeman"
+maintainer:          "dieter.vekeman@gmail.com"
+copyright:           "(c) 2016 Dieter Vekeman"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            CLI Tool
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on Github at <https://github.com/dvekeman/hadruki#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- aeson
+- happstack-server
+- text
+
+library:
+  source-dirs: src
+
+executables:
+  hadruki-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - hadruki
+
+tests:
+  hadruki-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - hadruki
